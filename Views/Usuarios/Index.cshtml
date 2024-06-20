@@ -1,0 +1,38 @@
+<h2>Creación de Usuario</h2>
+<a asp-action="Crear" class="btn btn-success">Crear Usuario</a>
+
+<table class="table border">
+    <tr class="border">
+        <td>Id</td>
+        <td>Cédula</td>
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>Correo</td>
+        <td>Contraseña</td>
+        <td>Telefono</td>
+        <td>Nacionalidad</td>
+        <td>Fecha de Nacimiento</td>
+    </tr>
+    
+    <tr class="border">
+        @foreach(var Usuario in Model)
+        {
+        <tr>
+            <td>@Usuario.Id</td>
+            <td>@Usuario.Cedula</td>
+            <td>@Usuario.Nombres</td>
+            <td>@Usuario.Apellidos</td>
+            <td>@Usuario.Correo</td>
+            <td>@Usuario.Contrasena</td>
+            <td>@Usuario.Telefono</td>
+            <td>@Usuario.Nacionalidad</td>
+            <td>@Usuario.FechaNacimiento</td>
+            <td>
+                <a asp-action="Detalles" asp-route-Id="@Usuario.Id" class="btn btn-warning">Detalles</a>
+                <a asp-action="Editar" class="btn btn-primary">Actualizar</a>
+                <a asp-action="Eliminar" asp-route-Id="@Usuario.Id" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        }
+    </tr>
+</table>

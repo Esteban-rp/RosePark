@@ -1,0 +1,29 @@
+<h2>Personales:</h2>
+<a asp-action="Crear" class="btn btn-success">Crear Usuario</a>
+
+<table class="table border">
+    <tr class="border">
+        <td>Nombres</td>
+        <td>Apellidos</td>
+        <td>Telefono</td>
+        <td>Correo</td>
+        <td>Acciones</td>
+    </tr>
+    
+    <tr class="border">
+        @foreach(var Personal in Model)
+        {
+        <tr>
+            <td>@Personal.Nombres</td>
+            <td>@Personal.Apellidos</td>
+            <td>@Personal.Telefono</td>
+            <td>@Personal.Correo</td>
+            <td>
+                <a asp-action="Detalles" asp-route-Id="@Personal.Id" class="btn btn-warning">Detalles</a>
+                <a asp-action="Editar" class="btn btn-primary">Actualizar</a>
+                <a asp-action="Eliminar" asp-route-Id="@Personal.Id" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        }
+    </tr>
+</table>
