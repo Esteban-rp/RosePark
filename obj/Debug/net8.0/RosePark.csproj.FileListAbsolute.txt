@@ -35,3 +35,6 @@ C:\Users\Juanes\Desktop\RosePark\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.
 C:\Users\Juanes\Desktop\RosePark\bin\Debug\net8.0\MySqlConnector.dll
 C:\Users\Juanes\Desktop\RosePark\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\Juanes\Desktop\RosePark\obj\Debug\net8.0\RosePark.csproj.Up2Date
+C:\Users\Juanes\Desktop\RosePark\obj\Debug\net8.0\RosePark.sourcelink.json
+C:\Users\Juanes\Desktop\RosePark\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\Juanes\Desktop\RosePark\bin\Debug\net8.0\Sprache.dll

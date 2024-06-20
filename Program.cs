@@ -1,14 +1,38 @@
 using RosePark.Data;
 using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
+using Microsoft.Extensions.Configuration;
+
+// Cargar el archivo .env antes de cualquier configuración
+Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Añadir configuraciones
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddEnvironmentVariables();
+
+// Construir la configuración
+var configuration = builder.Configuration;
+
+// Obtener las variables de entorno
+var server = configuration["Server"];
+var port = configuration["Port"];
+var database = configuration["Database"];
+var user = configuration["User"];
+var password = configuration["Password"];
+
+// Construir la cadena de conexión manualmente
+var connectionString = $"server={server};port={port};database={database};uid={user};password={password}";
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<BaseContext>(options => 
+builder.Services.AddDbContext<BaseContext>(options =>
     options.UseMySql(
-        builder.Configuration.GetConnectionString("MySqlConnection"),
+        connectionString,
         Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
 
 var app = builder.Build();
